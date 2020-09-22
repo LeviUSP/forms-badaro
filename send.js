@@ -14,6 +14,8 @@ document.querySelectorAll(".button").forEach((button) => {
       spanDefault.innerHTML = "Send";
       button.classList.add("active");
 
+      disappearCardContent();
+
       gsap.to(button, {
         keyframes: [
           {
@@ -21,7 +23,7 @@ document.querySelectorAll(".button").forEach((button) => {
             "--left-wing-first-y": 100,
             "--right-wing-second-x": 50,
             "--right-wing-second-y": 100,
-            duration: 0.2,
+            duration: 0.3,
             onComplete() {
               gsap.set(button, {
                 "--left-wing-first-y": 0,
@@ -49,7 +51,7 @@ document.querySelectorAll(".button").forEach((button) => {
             "--right-wing-third-y": 90,
             "--right-body-third-y": 90,
             "--right-wing-second-y": 90,
-            duration: 0.2,
+            duration: 0.3,
           },
           {
             "--rotate": 50,
@@ -59,13 +61,13 @@ document.querySelectorAll(".button").forEach((button) => {
             "--right-wing-second-x": 45,
             "--right-wing-third-x": 60,
             "--right-wing-third-y": 83,
-            duration: 0.25,
+            duration: 0.6,
           },
           {
             "--rotate": 55,
             "--plane-x": -8,
             "--plane-y": 24,
-            duration: 0.2,
+            duration: 0.3,
           },
           {
             "--rotate": 40,
@@ -144,4 +146,28 @@ function verifyErrors(field) {
   for (error in field.validity)
     if (field.validity[error] && !field.validity.valid) foundError = error;
   return foundError;
+}
+
+function disappearCardContent() {
+  const card = document.querySelector(".card");
+  const cardImg = document.querySelector("img.main-image");
+  const inputs = document.querySelectorAll(".input");
+
+  const keyframe = {
+    keyframes: [
+      {
+        duration: 0.2,
+      },
+      {
+        display: "none",
+      },
+    ],
+  };
+
+  for (const input of inputs) {
+    console.log(input);
+    gsap.to(input, keyframe);
+  }
+  gsap.to(cardImg, keyframe);
+  card.style.justifyContent = "center";
 }
