@@ -99,7 +99,6 @@ document.querySelectorAll(".button").forEach((button) => {
           },
         ],
       });
-
       gsap.to(button, {
         keyframes: [
           {
@@ -153,21 +152,70 @@ function disappearCardContent() {
   const cardImg = document.querySelector("img.main-image");
   const inputs = document.querySelectorAll(".input");
 
-  const keyframe = {
+  for (const input of inputs) {
+    gsap.to(input, getDisappearKeyframe(input));
+    input.querySelector("input").value = "";
+  }
+
+  gsap.to(cardImg, getDisappearKeyframe(cardImg));
+  gsap.to(card, {
+    keyframes: [
+      {
+        justifyContent: "space-between",
+        duration: 0.6,
+      },
+      {
+        justifyContent: "center",
+        onComplete() {
+          setTimeout(() => {
+            gsap.fromTo(
+              card,
+              {
+                justifyContent: "center",
+                duration: 0.1,
+              },
+              {
+                display: "flex",
+                clearProps: true,
+                duration: 0.3,
+              }
+            );
+          }, 2000);
+        },
+      },
+    ],
+  });
+}
+
+function getDisappearKeyframe(object) {
+  return {
     keyframes: [
       {
         duration: 0.2,
       },
       {
         display: "none",
+        onComplete() {
+          setTimeout(() => {
+            // card.removeAttribute("style");
+            console.log(object);
+            gsap.fromTo(
+              object,
+              {
+                display: "none",
+                duration: 0.4,
+              },
+              {
+                display: "flex",
+                clearProps: true,
+                duration: 0.3,
+              }
+            );
+          }, 2000);
+        },
       },
     ],
   };
-
-  for (const input of inputs) {
-    console.log(input);
-    gsap.to(input, keyframe);
-  }
-  gsap.to(cardImg, keyframe);
-  card.style.justifyContent = "center";
 }
+
+function getCardKeyFrames() {}

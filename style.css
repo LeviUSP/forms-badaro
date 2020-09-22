@@ -122,6 +122,7 @@ nav ul li a {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  height: 40vh;
 }
 
 .container .card img {
