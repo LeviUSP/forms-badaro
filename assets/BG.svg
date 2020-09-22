@@ -1,5 +1,6 @@
-<svg width="1440" height="609" viewBox="0 0 1440 609" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1440" height="663" viewBox="0 0 1440 663" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="-30" width="1500" height="608.353" fill="url(#paint0_linear)"/>
+<path d="M-41.8243 517.834C-41.8243 517.834 -35.4074 552.51 225.118 532.2C485.642 511.889 694.832 399.438 1020.17 517.834C1345.5 636.23 1504 585.206 1504 585.206L1471.92 663L-63 635.754" fill="white"/>
 <defs>
 <linearGradient id="paint0_linear" x1="841" y1="-141.27" x2="882.294" y2="912.418" gradientUnits="userSpaceOnUse">
 <stop offset="0.0230714" stop-color="#E11458"/>

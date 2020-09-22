@@ -1,0 +1,20 @@
+.typing {
+  position: relative;
+}
+.typing::after {
+  content: "";
+  position: absolute;
+  border-right: 2px solid white;
+  width: 5px;
+  height: 90%;
+  animation: steps(40) infinite blink 600ms;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

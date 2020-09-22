@@ -4,16 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forms Badaro</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="./app.js"></script>
+    <link rel="stylesheet" href="animation.css" />
   </head>
   <body>
     <nav>
       <img src="./assets/Ellipse 5.svg" alt="Logo" />
       <ul>
-        <li>Home</li>
-        <li>About us</li>
-        <li>Blog</li>
-        <li>Contact Us</li>
+        <li class="selectable">Home</li>
+        <li class="selectable">About us</li>
+        <li class="selectable">Blog</li>
+        <li class="selectable active">Contact Us</li>
         <li>Sell Bitcoin/Gitcard</li>
         <li><a href="#">Login</a></li>
       </ul>
@@ -24,13 +24,38 @@
       <div class="card">
         <img src="./assets/IMG.svg" alt="" />
         <form>
-          <input type="text" />
-          <input type="email" name="email" id="1" />
-          <input type="text" />
-          <input type="text" />
-          <input type="submit" value="" />
+          <div class="input">
+            <input required id="name" type="text" />
+            <label for="name">Full name</label>
+            <span class="error"></span>
+          </div>
+          <div class="input">
+            <input required id="email" type="email" name="email" id="1" />
+            <label for="email">Email</label>
+            <span class="error"></span>
+          </div>
+          <div class="input">
+            <input required id="company" type="text" />
+            <label for="company">Company</label>
+            <span class="error"></span>
+          </div>
+          <div class="input">
+            <input required id="city" type="text" />
+            <label for="city">City</label>
+            <span class="error"></span>
+          </div>
+          <button class="button" type="submit">
+            <span class="default">Send</span>
+            <span class="success">Sent</span>
+            <div class="left"></div>
+            <div class="right"></div>
+          </button>
         </form>
       </div>
     </div>
+    <script src="./app.js"></script>
+    <script src="./fieldsValidation.js"></script>
+    <script src="./gsap-public/gsap-public/minified/gsap.min.js"></script>
+    <script src="./send.js"></script>
   </body>
 </html>
